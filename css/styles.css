@@ -1,3 +1,19 @@
+<<<<<<< HEAD
 
 
-/*# sourceMappingURL=styles.css.map */
+=======
+@import'normalize.css';
+
+
+/* reset */
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'roboto', sans-serif;
+}
+>>>>>>> 851248a8c5da372e5f5e79c4e16560108fd7b367
