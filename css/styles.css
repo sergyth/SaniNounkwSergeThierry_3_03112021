@@ -1,37 +1,53 @@
-@import 'normalize.css';
-
-
-/* reset */
-
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@import '../css/normalize.css';
+* {
+  box-sizing: border-box;
 }
 
-.red-b{
-    border: 1px solid red;
+.red-b {
+  border: 1px solid red;
 }
 
-body{
-    font-family: 'roboto', sans-serif;
-    max-width: 1440px;
-    min-width: 300px;
+.container {
+  width: 100%;
+  max-width: 1440px;
+  min-width: 300px;
 }
 
-.container{
-    width: 100%;
+header {
+  width: 100%;
+  height: 60px;
+  padding: 15px;
+  text-align: center;
 }
 
-header{
-    width: 100%;
-    height: 60px;
-    padding: 15px;
-    text-align: center;
+.booking {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.booking__location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+}
+.booking__location p {
+  padding-right: 50px;
+  font-weight: bold;
+}
+.booking__location .fas {
+  padding-right: 20px;
+}
+.booking__search {
+  display: flex;
+  flex-direction: column;
+}
+.booking__search p:nth-child(1) {
+  font-weight: bold;
+  font-size: 2rem;
 }
 
-.booking{
-    display: flex;
-    flex-direction: column;
 
-}
+
+/*# sourceMappingURL=styles.css.map */
+
