@@ -8,6 +8,8 @@
 body,
 html {
   font-family: "roboto", sans-serif;
+  max-width: 1440px;
+  min-width: 320px;
 }
 
 .red-b {
@@ -16,8 +18,9 @@ html {
 
 .container {
   width: 100%;
-  max-width: 1440px;
-  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 header {
@@ -29,10 +32,19 @@ header {
   font-size: 2rem;
 }
 
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .booking {
   display: flex;
   flex-direction: column;
   text-align: center;
+  width: 100%;
+  background: #f7f6f7;
 }
 .booking__location {
   display: flex;
@@ -52,14 +64,13 @@ header {
 .booking__search {
   display: flex;
   flex-direction: column;
-  background-color: #f7f6f7;
   padding: 2rem;
   align-items: center;
 }
 .booking__search p:nth-child(1) {
   font-weight: bold;
   font-size: 1.5rem;
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 0;
   padding-bottom: 1rem;
 }
 .booking__search p:nth-child(2) {
@@ -80,14 +91,12 @@ header {
 .function {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 1rem;
 }
 .function p:nth-child(1) {
   font-weight: bold;
   font-size: 1.5rem;
-  padding: 1rem;
-  margin-left: -9rem;
+  padding: 1rem 1rem 1rem 0;
 }
 .function__choice {
   display: flex;
@@ -96,7 +105,7 @@ header {
   padding: 1rem;
   margin: 1rem;
   position: relative;
-  width: 300px;
+  width: 280px;
   height: 80px;
   border-radius: 20px;
   background: #f7f6f7;
@@ -124,44 +133,48 @@ header {
   font-weight: bold;
 }
 
-.local {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  background: #f7f6f7;
-  width: 100%;
-}
-.local p:nth-child(1) {
-  font-weight: bold;
-  font-size: 1.5rem;
-  padding: 1rem;
-}
-.local__container {
-  width: 100%;
+.restaurant {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background: #f7f6f7;
 }
-.local__container__card {
-  width: 300px;
-  height: 250px;
-  margin: 10px;
+.restaurant__title {
+  margin: 1rem 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 1rem 1rem 1rem 0;
 }
-.local__container__card a {
+
+.cards {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
 }
-a .local__container__card-image {
-  height: 180px;
-  width: 100%;
+
+.card {
+  width: 300px;
 }
-a .local__container__card-image img {
+.card__image {
   width: 100%;
   object-fit: cover;
+  border: 0px solid transparent;
+  border-radius: 15px 15px 0 0;
+  flex: 2;
 }
-a .local__container__card-info {
-  height: 70px;
-  width: 100%;
+.card__info {
+  flex: 1;
+  background: #fff;
+  border: 0px solid #fff;
+  border-radius: 0 0 15px 15px;
+  margin-bottom: 1rem;
+}
+
+.link {
+  display: block;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,4 +1,6 @@
 @import "../css/normalize.css";
+@import "variables";
+@import "mixins";
 
 // reset
 
@@ -8,26 +10,11 @@
   padding: 0;
 }
 
-// variables
-
-$color-primary: #9356dc;
-$color-secondary: #ff79da;
-$color-new: #99e2d0;
-$color-bg-dark:#ebebea;
-$color-bg-light:#f7f6f7;
-
-// mixins
-
-@mixin title {
-    font-weight: bold;
-    font-size: 1.5rem;
-    padding: 1rem; 
-}
-
-
 body,
 html {
   font-family: "roboto", sans-serif;
+  max-width: 1440px;
+  min-width: 320px;
 }
 
 .red-b {
@@ -36,8 +23,8 @@ html {
 
 .container {
   width: 100%;
-  max-width: 1440px;
-  min-width: 320px;
+  @include flex-column;
+  align-items: center
 }
 
 header {
@@ -45,14 +32,22 @@ header {
   height: 60px;
   padding: 15px;
   text-align: center;
-  font-family: 'shrikhand';
+  font-family: "shrikhand";
   font-size: 2rem;
 }
 
+main{
+  width: 100%;
+  @include flex-column;
+  align-items: center;
+}
+
+
 .booking {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   text-align: center;
+  width: 100%;
+  background: $color-bg-light;
   &__location {
     display: flex;
     align-items: center;
@@ -71,14 +66,12 @@ header {
   }
 
   &__search {
-    display: flex;
-    flex-direction: column;
-    background-color: $color-bg-light;
+    @include flex-column;
     padding: 2rem;
     align-items: center;
 
     & p:nth-child(1) {
-      @include title;
+      @include heading-section;
       padding-bottom: 1rem;
     }
     & p:nth-child(2) {
@@ -95,21 +88,18 @@ header {
       border-radius: 100px;
       background: linear-gradient(
         0deg,
-        rgba(147, 86, 220, 1) 0%,
-        rgba(255, 121, 218, 1) 100%
+        $color-primary 0%,
+        $color-secondary 100%
       );
     }
   }
 }
 
 .function {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex-column;
   padding: 1rem;
   & p:nth-child(1) {
-  @include title;
-    margin-left: -9rem;
+    @include heading-section;
   }
   &__choice {
     display: flex;
@@ -118,7 +108,7 @@ header {
     padding: 1rem;
     margin: 1rem;
     position: relative;
-    width: 300px;
+    width: 280px;
     height: 80px;
     border-radius: 20px;
     // border: 1px solid #000;
@@ -137,62 +127,55 @@ header {
       transform: translate(50% 50%);
       color: #fff;
     }
-    & .icone{
-        margin-right: 2rem;
-        font-size: 1.2rem;
-        opacity: .6;
+    & .icone {
+      margin-right: 2rem;
+      font-size: 1.2rem;
+      opacity: 0.6;
     }
-    & p{
-        font-weight: bold;
+    & p {
+      font-weight: bold;
     }
-
   }
 }
 
-.local{
+.restaurant {
+  @include flex-column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background: $color-bg-light;
+  &__title{
+    margin: 1rem 0;
+    @include heading-section;
     
-    margin-top: 2rem;
-    padding-top: 2rem;
-    background: $color-bg-light;
+    
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.card {
+  width: 300px;
+  &__image {
     width: 100%;
-    & p:nth-child(1){
-      @include title;
-    }
-    &__container{
+    object-fit: cover;
+    border: 0px solid transparent;
+    border-radius: 15px 15px 0 0;
+    flex: 2;
+  }
+  &__info {
+    flex: 1;
+    background: #fff;
+    border:0px solid #fff;
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 1rem;
+  }
+}
 
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      &__card {
-        width: 300px;
-        height: 250px;
-        margin: 10px;
-        & a{
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            // margin: 15px;
-        }
-        a &-image {
-          height: 180px;
-            width: 100%;
-            & img{
-              width: 100%;
-              object-fit: cover;
-            
-            }
-        }
-
-        a &-info{
-            height: 70px;
-            width: 100%;
-        }
-      
-    }
-    }
-
-
-
+.link {
+  display: block;
 }
