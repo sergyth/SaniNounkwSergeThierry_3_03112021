@@ -36,11 +36,22 @@ html {
   font-size: 2rem;
 }
 
+
 .main {
   width: 100%;
   @include flex-column;
   align-items: center;
+  &__wrapper{
+    width: 100%;
+    background: $color-bg-light;
+  }
+  &__content{
+    width: 320px;
+    margin: 0 auto;
+    position: relative;
+  }
 }
+
 
 .booking {
   @include flex-column;
@@ -87,16 +98,9 @@ html {
     color: #353434;
   }
   &__button {
-    width: 220px;
-    padding: 1rem;
-    margin: 2rem;
-    border: none;
-    color: #fff;
-    border-radius: 100px;
-    background: linear-gradient(0deg, $color-primary 0%, $color-secondary 100%);
-  }
+   @include button;
 }
-
+}
 .check-in {
   @include flex-column;
   padding: 1rem;
@@ -252,4 +256,82 @@ html {
   text-decoration: none;
   color: #fff;
   padding: .5rem .5rem 1rem 0;
+}
+
+// restaurant
+
+.header-restaurant{
+  display: flex;
+  &__logo{
+    width: 100%;
+    text-align: center;
+  }
+  &__homepage{
+    color: #000;
+    font-size: 1.2rem;
+    padding-left: 1.5rem;
+  }
+}
+.banner{
+  width: 100%;
+  height: 250px;
+  
+}
+.content{
+  position: relative;
+  height:1300px;
+}
+.card-menu{
+  position: absolute;
+  top:200px;
+  background: $color-bg-light;
+  right: 0;
+  left: 0;
+  border-radius: 50px 50px 0;
+  padding: 1rem 1rem 1rem 1rem;
+  &__restaurant{
+    display: flex;
+    justify-content: space-between;
+    font-family: shrikhand;
+    font-size: 1.5rem;
+    padding: 1rem .5rem 1rem 0;
+  }
+  &__text{
+    padding: 1rem .5rem 1rem 0;
+  }
+
+  &__text::after{
+    content: '';
+    @include underline;
+  }
+  &__recipe{
+    width: 300px;
+    height: 65px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  &__recipe-heading{
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  &__recipe-price{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: .8rem;
+  }
+  &__recipe-text{
+    width: 230px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  &__price{
+    font-weight: bold;
+  }
+}
+.add-cart{
+  @include button;
 }
