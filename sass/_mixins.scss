@@ -1,0 +1,9 @@
+@mixin heading-section {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 1rem 1rem 1rem 0; 
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}

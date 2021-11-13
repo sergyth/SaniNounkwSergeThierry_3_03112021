@@ -1,6 +1,14 @@
-@import '../css/normalize.css';
+@import "../css/normalize.css";
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  font-family: "roboto", sans-serif;
+  max-width: 1440px;
 }
 
 .red-b {
@@ -8,43 +16,246 @@
 }
 
 .container {
-  width: 100%;
-  max-width: 1440px;
-  min-width: 300px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
 }
 
-header {
+.header {
   width: 100%;
   height: 60px;
   padding: 15px;
   text-align: center;
+  font-family: "shrikhand";
+  font-size: 2rem;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .booking {
   display: flex;
   flex-direction: column;
-  text-align: center;
+  width: 100%;
+  align-items: center;
+  background: #f7f6f7;
 }
-.booking__location {
+.booking--dark {
+  background: #ebebea;
+}
+.booking__map, .booking__search {
+  width: 320px;
+}
+
+.map {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f2f2f2;
-}
-.booking__location p {
-  padding-right: 50px;
+  padding: 1rem;
+  font-size: 1rem;
   font-weight: bold;
+  position: relative;
 }
-.booking__location .fas {
-  padding-right: 20px;
+.map__icon {
+  position: absolute;
+  left: 73px;
 }
-.booking__search {
+
+.search {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-.booking__search p:nth-child(1) {
+.search__heading {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  padding: 1rem 1rem 1rem 0;
+  padding-bottom: 1rem;
+}
+.search__text {
+  color: #353434;
+}
+.search__button {
+  width: 220px;
+  padding: 1rem;
+  margin: 2rem;
+  border: none;
+  color: #fff;
+  border-radius: 100px;
+  background: linear-gradient(0deg, #9356dc 0%, #ff79da 100%);
+}
+
+.check-in {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.check-in__heading {
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 1rem 1rem 1rem 0;
+}
+.check-in__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem auto;
+  margin: 1rem auto;
+  position: relative;
+  width: 280px;
+  height: 80px;
+  border-radius: 20px;
+  background: #f7f6f7;
+  box-shadow: 5px 5px 10px #ebebea;
+}
+.check-in__order {
+  display: inline-flex;
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #9356dc;
+  justify-content: center;
+  align-items: center;
+  left: -13px;
+  color: #fff;
+}
+.check-in__icon {
+  margin-right: 2rem;
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+.check-in__text {
+  font-weight: bold;
+}
+
+.restaurant {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  background: #f7f6f7;
+}
+
+.cards {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.cards__heading {
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 1rem 1rem 1rem 0;
+  padding: 1rem;
+}
+.cards__item {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.card {
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+}
+.card__link {
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}
+.card__image {
+  width: 100%;
+  object-fit: cover;
+  border: 0px solid transparent;
+  border-radius: 15px 15px 0 0;
+  height: 65%;
+}
+.card__content {
+  height: 35%;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 0 0 15px 15px;
+  padding: 0.8rem;
+  position: relative;
+}
+.card__heading {
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
+}
+.card__text {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.card__icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.3rem;
+}
+
+.footer {
+  width: 100%;
+  background: #000;
+  color: #fff;
+}
+.footer__wrapper {
+  width: 320px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+.footer__box {
+  width: 300px;
+  margin: 0 auto;
+}
+.footer__logo {
+  font-family: shrikhand;
+  font-style: italic;
+  font-size: 1.1rem;
+  padding: 1rem 1rem 1rem 0;
+}
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.submit-restaurant {
+  display: flex;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+}
+.submit-restaurant__text {
+  padding-left: 1rem;
+}
+
+.partnership {
+  display: flex;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+}
+.partnership__text {
+  padding-left: 1rem;
+}
+
+.legal {
+  padding: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.contact {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem 0.5rem 1rem 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
