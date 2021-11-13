@@ -7,3 +7,20 @@
   display: flex;
   flex-direction: column;
 }
+
+@mixin button {
+  width: 220px;
+  padding: 1rem;
+  margin: 2rem;
+  border: none;
+  color: #fff;
+  border-radius: 100px;
+  background: linear-gradient(0deg, $color-primary 0%, $color-secondary 100%);
+}
+
+@mixin underline{
+  width: 40px;
+  height: 3px;
+  background: $color-new;
+  display: block;
+}
