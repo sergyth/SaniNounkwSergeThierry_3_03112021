@@ -28,7 +28,6 @@ html {
   margin: 0 auto;
 }
 
-
 //header
 
 .header {
@@ -39,7 +38,6 @@ html {
   font-family: "shrikhand";
   font-size: 2rem;
 }
-
 
 //main
 
@@ -150,7 +148,7 @@ html {
 }
 
 .cards {
- width: 100%;
+  width: 100%;
   @include flex-column;
   align-items: center;
 
@@ -160,11 +158,10 @@ html {
   }
 }
 .card {
-  width:90vw ;
+  width: 90vw;
   max-width: 700px;
   height: 200px;
   margin: 0 auto;
-  
 
   &__link {
     width: 100%;
@@ -211,7 +208,7 @@ html {
   background: #000;
   color: #fff;
   padding: 2rem;
- 
+
   &__logo {
     font-family: shrikhand;
     font-style: italic;
@@ -222,7 +219,7 @@ html {
     @include flex-column;
     font-size: 0.9rem;
   }
-  &__icon{
+  &__icon {
     width: 10px;
   }
 }
@@ -249,25 +246,22 @@ html {
   padding: 0.5rem 0.5rem 1rem 0;
 }
 
-
-
 // restaurant page
 
 .header-restaurant {
   display: flex;
-  position: relative;
+  align-items: center;
+
+  width: 100vw;
+  max-width: 768px;
   &__logo {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
+   width: 95%;
+   text-align: center;
   }
-  &__homepage {
+  &__arrow {
     color: #000;
     font-size: 1.2rem;
-    padding-left: 1.5rem;
-    display: block;
-    position: absolute;
-    top: 50%;
+  width: 5%;
   }
 }
 .banner {
@@ -276,22 +270,28 @@ html {
 }
 .content {
   position: relative;
-  height: 1300px;
+  min-height: 1350px;
 }
 .card-menu {
+  width: 100vw;
+  min-width: 320px;
+  max-width: 768px;
   position: absolute;
+  @include flex-column;
+  align-items: center;
   top: 200px;
   background: $color-bg-light;
   right: 0;
   left: 0;
   border-radius: 50px 50px 0;
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 1rem;
   &__restaurant {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     font-family: shrikhand;
     font-size: 1.5rem;
-    padding: 1rem 0.5rem 1rem 0;
+    padding: 1rem;
   }
   &__text {
     padding: 1rem 0.5rem 1rem 0;
@@ -302,7 +302,8 @@ html {
     @include underline;
   }
   &__recipe {
-    width: 100%;
+    width: 80vw;
+    max-width: 700px;
     height: 65px;
     background: #fff;
     border-radius: 15px;
