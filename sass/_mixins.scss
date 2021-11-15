@@ -1,7 +1,7 @@
 @mixin heading-section {
     font-weight: bold;
     font-size: 1.5rem;
-    padding: 1rem 1rem 1rem 0; 
+    padding: 1rem; 
 }
 @mixin flex-column {
   display: flex;
@@ -23,4 +23,10 @@
   height: 3px;
   background: $color-new;
   display: block;
+}
+
+@mixin text-overflow{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
