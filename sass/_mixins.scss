@@ -16,6 +16,9 @@
   color: #fff;
   border-radius: 100px;
   background: linear-gradient(0deg, $color-primary 0%, $color-secondary 100%);
+  box-shadow: $box-shadow;
+  transition: all 200ms;
+  cursor: pointer;
 }
 
 @mixin underline{
@@ -29,4 +32,19 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+@mixin selected{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 90%;
+  bottom: 0;
+  border-radius: 0 15px 15px 0;
+  background: #fff;
+}
+@mixin flex-center{
+  display: flex;
+  justify-content: center;  
+  align-items: center;
 }

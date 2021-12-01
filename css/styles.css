@@ -17,23 +17,96 @@ html {
 }
 
 .container {
-  width: 100vw;
-  max-width: 768px;
+  max-width: 767px;
   min-width: 320px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: op;
 }
 
+.spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner__item {
+  font-size: 1rem;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: spin 3s linear;
+  visibility: hidden;
+}
+.spinner__item:nth-child(1) {
+  border-top: 5px solid #ff79da;
+}
+.spinner__item:nth-child(2) {
+  border-bottom: 5px solid #9356dc;
+}
+.spinner__text {
+  color: #99e2d0;
+  position: absolute;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    visibility: visible;
+    opacity: 0.9;
+  }
+  33% {
+    transform: rotate(120deg);
+    opacity: 0.6;
+  }
+  66% {
+    transform: rotate(240deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: rotate(360deg);
+    display: none;
+  }
+}
+.hide {
+  opacity: 0;
+  animation: hide 3s 3s forwards;
+}
+
+@keyframes hide {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .header {
   width: 100%;
-  height: 60px;
+  height: 80px;
   padding: 1rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "shrikhand";
   font-size: 2rem;
+  box-shadow: 0px 1px 1px 1px;
+  position: relative;
 }
 
 .main {
   width: 100%;
+  min-width: inherit;
   display: flex;
   flex-direction: column;
 }
@@ -92,6 +165,14 @@ html {
   color: #fff;
   border-radius: 100px;
   background: linear-gradient(0deg, #9356dc 0%, #ff79da 100%);
+  box-shadow: 0px 2px 2px 1px;
+  transition: all 200ms;
+  cursor: pointer;
+}
+.search__button:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+  box-shadow: 3px 3px 0px 1px rgba(0, 0, 0, 0.8);
 }
 
 .check-in {
@@ -112,7 +193,7 @@ html {
   padding: 0.5rem;
   margin: 1rem auto;
   position: relative;
-  width: 75vw;
+  width: 75%;
   max-width: 700px;
   height: 80px;
   border-radius: 20px;
@@ -157,9 +238,11 @@ html {
 
 .cards {
   width: 100%;
+  min-width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .cards__item {
   width: 100%;
@@ -167,10 +250,12 @@ html {
 }
 
 .card {
-  width: 90vw;
+  width: 90%;
   max-width: 700px;
+  min-width: 280px;
   height: 200px;
   margin: 0 auto;
+  position: relative;
 }
 .card__link {
   width: 100%;
@@ -209,6 +294,21 @@ html {
   right: 1rem;
   font-size: 1.3rem;
 }
+.card__new-box {
+  background-color: #99e2d0;
+  position: absolute;
+  width: 80px;
+  padding: 0.3rem;
+  right: 1rem;
+  top: 1rem;
+  border: 1px solid transparent;
+  text-align: center;
+  border-radius: 2px;
+}
+.card__new {
+  color: #0a8d6d;
+  font-size: 1em;
+}
 
 .footer {
   width: 100%;
@@ -217,7 +317,7 @@ html {
   padding: 2rem;
 }
 .footer__logo {
-  font-family: shrikhand;
+  font-family: "shrikhand";
   font-style: italic;
   font-size: 1.1rem;
   padding: 1rem 1rem 1rem 0;
@@ -260,8 +360,6 @@ html {
 .header-restaurant {
   display: flex;
   align-items: center;
-  width: 100vw;
-  max-width: 768px;
 }
 .header-restaurant__logo {
   width: 95%;
@@ -284,9 +382,7 @@ html {
 }
 
 .card-menu {
-  width: 100vw;
   min-width: 320px;
-  max-width: 768px;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -302,7 +398,7 @@ html {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  font-family: shrikhand;
+  font-family: "shrikhand";
   font-size: 1.5rem;
   padding: 1rem;
 }
@@ -317,12 +413,15 @@ html {
   display: block;
 }
 .card-menu__recipe {
-  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
   max-width: 700px;
   height: 65px;
   background: #fff;
   border-radius: 15px;
-  padding: 0.8rem;
+  padding-left: 0.8rem;
   margin-bottom: 1rem;
 }
 .card-menu__recipe-heading {
@@ -345,6 +444,22 @@ html {
   font-weight: bold;
 }
 
+.recipe {
+  position: relative;
+  margin: 1rem auto;
+}
+.recipe:hover {
+  transform-origin: left;
+  transform: scalex(0.8);
+  border-radius: 15px 0 0 15px;
+}
+.recipe__wrapper {
+  width: 100%;
+}
+.recipe__selected {
+  display: none;
+}
+
 .add-cart {
   width: 220px;
   padding: 1rem;
@@ -353,6 +468,74 @@ html {
   color: #fff;
   border-radius: 100px;
   background: linear-gradient(0deg, #9356dc 0%, #ff79da 100%);
+  box-shadow: 0px 2px 2px 1px;
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .cards__item {
+    width: 45%;
+    margin: 1rem;
+  }
+
+  .card {
+    width: 45%;
+    max-width: 450px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .check-in {
+    flex-direction: row;
+    width: 100%;
+  }
+  .check-in__box {
+    width: 30%;
+    max-width: 280px;
+  }
+
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .cards__item {
+    width: 30%;
+    max-width: 350px;
+    margin: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    margin: 1rem;
+  }
+
+  .restaurant__heading {
+    margin-left: 1rem;
+  }
+
+  .footer__content {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

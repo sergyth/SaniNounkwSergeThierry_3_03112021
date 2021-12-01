@@ -22,27 +22,106 @@ html {
 }
 
 .container {
-  width: 100vw;
-  max-width: 768px;
+  max-width: 767px;
   min-width: 320px;
   margin: 0 auto;
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+
+  animation: op;
 }
 
+// spinner
+
+
+.spinner {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  @include flex-center;
+
+  &__item {
+    font-size: 1rem;
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    @include flex-center;
+    animation: spin 3s linear;
+    visibility: hidden;
+  }
+  &__item:nth-child(1) {
+    border-top: 5px solid $color-secondary;
+  }
+  &__item:nth-child(2) {
+    border-bottom: 5px solid $color-primary;
+  }
+  &__text {
+    color: $color-new;
+    position: absolute;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    visibility: visible;
+    opacity: 0.9;
+  }
+  33% {
+    transform: rotate(120deg);
+
+    opacity: 0.6;
+  }
+  66% {
+    transform: rotate(240deg);
+
+    opacity: 0.3;
+  }
+  100% {
+    transform: rotate(360deg);
+    display: none;
+  }
+}
+
+
+.hide{
+  opacity: 0;
+  animation: hide 3s 3s forwards;
+}
+@keyframes hide{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
 //header
 
 .header {
   width: 100%;
-  height: 60px;
+  height: 80px;
   padding: 1rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: "shrikhand";
   font-size: 2rem;
+  box-shadow: 0px 1px 1px 1px;
+  position: relative;
 }
 
 //main
 
 .main {
   width: 100%;
+  min-width: inherit;
   @include flex-column;
   &__wrapper {
     width: 100%;
@@ -92,6 +171,11 @@ html {
   &__button {
     @include button;
   }
+  &__button:hover{
+    transform: scale(1.1);
+    opacity: .8;
+    box-shadow: 3px 3px 0px 1px rgba(0,0,0,0.8);
+  }
 }
 .check-in {
   width: 100%;
@@ -107,7 +191,7 @@ html {
     padding: 0.5rem;
     margin: 1rem auto;
     position: relative;
-    width: 75vw;
+    width: 75%;
     max-width: 700px;
     height: 80px;
     border-radius: 20px;
@@ -149,8 +233,10 @@ html {
 
 .cards {
   width: 100%;
+  min-width: 320px;
   @include flex-column;
   align-items: center;
+  justify-content: center;
 
   &__item {
     width: 100%;
@@ -158,10 +244,12 @@ html {
   }
 }
 .card {
-  width: 90vw;
+  width: 90%;
   max-width: 700px;
+  min-width: 280px;
   height: 200px;
   margin: 0 auto;
+  position: relative;
 
   &__link {
     width: 100%;
@@ -199,6 +287,21 @@ html {
     right: 1rem;
     font-size: 1.3rem;
   }
+  &__new-box {
+    background-color: $color-new;
+    position: absolute;
+    width: 80px;
+    padding: 0.3rem;
+    right: 1rem;
+    top: 1rem;
+    border: 1px solid transparent;
+    text-align: center;
+    border-radius: 2px;
+  }
+  &__new {
+    color: rgba(10, 141, 109, 255);
+    font-size: 1em;
+  }
 }
 
 // footer
@@ -210,7 +313,7 @@ html {
   padding: 2rem;
 
   &__logo {
-    font-family: shrikhand;
+    font-family: "shrikhand";
     font-style: italic;
     font-size: 1.1rem;
     padding: 1rem 1rem 1rem 0;
@@ -252,16 +355,14 @@ html {
   display: flex;
   align-items: center;
 
-  width: 100vw;
-  max-width: 768px;
   &__logo {
-   width: 95%;
-   text-align: center;
+    width: 95%;
+    text-align: center;
   }
   &__arrow {
     color: #000;
     font-size: 1.2rem;
-  width: 5%;
+    width: 5%;
   }
 }
 .banner {
@@ -273,9 +374,9 @@ html {
   min-height: 1350px;
 }
 .card-menu {
-  width: 100vw;
+  
   min-width: 320px;
-  max-width: 768px;
+
   position: absolute;
   @include flex-column;
   align-items: center;
@@ -289,7 +390,7 @@ html {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    font-family: shrikhand;
+    font-family: 'shrikhand';
     font-size: 1.5rem;
     padding: 1rem;
   }
@@ -302,12 +403,15 @@ html {
     @include underline;
   }
   &__recipe {
-    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
     max-width: 700px;
     height: 65px;
     background: #fff;
     border-radius: 15px;
-    padding: 0.8rem;
+    padding-left: 0.8rem;
     margin-bottom: 1rem;
   }
   &__recipe-heading {
@@ -328,6 +432,87 @@ html {
     font-weight: bold;
   }
 }
+
+.recipe {
+  position: relative;
+  margin: 1rem auto;
+  &:hover{
+    transform-origin: left;
+    transform: scalex(.8);
+    border-radius: 15px 0 0 15px;
+  }
+
+  &__wrapper {
+    width: 100%;
+  
+  }
+  &__selected {
+  display: none;
+  }
+}
+
 .add-cart {
   @include button;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 991px;
+  }
+  .main {
+    width: 100%;
+  }
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    &__item {
+      width: 45%;
+      margin: 1rem;
+    }
+  }
+  .card {
+    width: 45%;
+    max-width: 450px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 1200px;
+  }
+  .check-in {
+    flex-direction: row;
+    width: 100%;
+    &__box {
+      width: 30%;
+      max-width: 280px;
+    }
+  }
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+    &__item {
+      width: 30%;
+      max-width: 350px;
+      margin: 1rem;
+    }
+  }
+  .card {
+    width: 100%;
+    margin: 1rem;
+  }
+  .restaurant {
+    &__heading {
+      margin-left: 1rem;
+    }
+  }
+
+  .footer {
+    &__content {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
 }
