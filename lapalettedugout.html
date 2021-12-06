@@ -18,7 +18,7 @@
     <title>la palette du gout</title>
   </head>
   <body>
-    <div class="container red-b ">
+    <div class="container ">
       <header class="header header-restaurant ">
         <div class="header-restaurant__arrow ">
           <a href="index.html" class="header-restaurant__arrow " >
@@ -30,16 +30,21 @@
       </header>
       <main class="main">
         <div class="main__wrapper">
-          <div class="main__content content">
-            <img
-              src="images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
-              alt="la photo d'un plat"
-              class="banner"
-            />
-            <div class="card-menu">
-              <div class="card-menu__restaurant">
+     
+            <div class="banner">
+              <img
+                src="images/restaurants/palette.jpg"
+                alt="la photo d'un plat"
+              class="banner__image"
+              />
+            </div>
+            <div class="card-menu ">
+              <div class="card-menu__restaurant ">
                 <p class="card-menu__heading">La palette du goût</p>
-                <i class="far fa-heart card-menu__icon"></i>
+                <div class="card-menu__icons">
+                  <i class="far fa-heart card-menu__icon card-menu__icon-1"></i>
+                  <i class="far fa-heart  card-menu__icon card-menu__icon-2"></i>
+                </div>
               </div>
               <article class="card-menu__entries">
                 <p class="card-menu__text">ENTREES</p>
@@ -53,10 +58,10 @@
                   </div>
                   <i class="fas fa-check-circle recipe__selected "></i>
                 </div>
-
+              </article>
               <button class="add-cart">commander</button>
             </div>
-          </div>
+          
         </div>
       </main>
       <footer class="footer">
