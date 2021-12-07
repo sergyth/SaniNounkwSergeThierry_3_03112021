@@ -171,7 +171,7 @@ html {
   &__button:hover {
     transform: scale(1.1);
     opacity: 0.9;
-  @include box-shadow;
+    @include box-shadow;
   }
 }
 .check {
@@ -197,6 +197,9 @@ html {
     border-radius: 20px;
     background: $color-bg-light;
     box-shadow: 5px 5px 10px $color-bg-dark;
+    &:hover{
+      transform: scale(1.1);
+    }
   }
   &__order {
     display: inline-flex;
@@ -283,12 +286,6 @@ html {
     font-size: 14px;
     line-height: 1.5;
   }
-  &__icon {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.3rem;
-  }
 
   &__new-box {
     background-color: $color-new;
@@ -307,6 +304,13 @@ html {
   }
 }
 .heart-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.3rem;
+}
+
+.heart-icon-1 {
   color: transparent;
   background-image: linear-gradient(
     0deg,
@@ -384,63 +388,57 @@ html {
 .banner {
   width: 100%;
   height: 250px;
-  
-  
-  
-  &__image{
+
+  &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-  
   }
 }
 
 .card-menu {
   position: relative;
-  min-width: 320px;
+  min-width: 280px;
   width: 100%;
   margin-top: -30px;
   @include flex-column;
   align-items: center;
   background: $color-bg-light;
-
- 
   border-radius: 30px 30px 0 0;
   padding: 1rem;
+  overflow: hidden;
+  
   &__restaurant {
     width: 100%;
     display: flex;
     justify-content: space-between;
     font-family: "shrikhand";
     font-size: 1.5rem;
-    padding: 1rem;
+    padding: 1rem -1rem 1rem 0 ;
+    margin-bottom: 1rem;
   }
-  &__icons{
+  &__icons {
     position: relative;
   }
-  &__icon{
-    position: absolute;
-    right: 0;
+  &__icon {
+    top: 50%;
+    transform: translateY(-50%);
+    &:hover {
+      opacity: 1;
+    }
   }
-  &__icon-2 {
-   opacity: 0;
-    background-image: linear-gradient(
-      0deg,
-      $color-primary 0%,
-      $color-secondary 100%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    opacity: 0;
-    transition: all 250ms ease-in-out;
+  &__dishes{
+    width: 100%;
+ 
   }
-  &__icon-1:hover &__icon-2 {
-    opacity: 1;
-  }
-  &__text {
-    padding: 1rem 0.5rem 1rem 0;
+  &__text{
+    animation: appear $animation-duration-dishes linear both;
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}){
+        animation-delay: $animation-duration-dishes*$i;
+      }
+    }
   }
 
   &__text::after {
@@ -452,51 +450,118 @@ html {
     justify-content: space-between;
     align-items: center;
     width: 95%;
-    max-width: 700px;
+    //max-width: 700px;
+    //min-width: 320px;
     height: 65px;
     background: #fff;
     border-radius: 15px;
     padding-left: 0.8rem;
     margin-bottom: 1rem;
+    overflow: hidden;
   }
   &__recipe-heading {
     font-size: 1rem;
     font-weight: bold;
+    @include text-overflow;
+    width: 50%;
   }
   &__recipe-price {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0;
     font-size: 0.8rem;
+    margin-right: 1rem;
   }
   &__recipe-text {
-    width: 230px;
+    width: 50%;
     @include text-overflow;
+    
+    
   }
   &__price {
     font-weight: bold;
   }
 }
 
+@keyframes slide-down {
+  from {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+}
+@keyframes appear {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+  
+}
+
+
 .recipe {
   position: relative;
   margin: 1rem auto;
-  &:hover {
-    transform-origin: left;
-    transform: scalex(0.8);
-    border-radius: 15px 0 0 15px;
+
+  animation: slide-down $animation-duration-recipe ease-in-out both;
+    @for $i from 1 through 9 {
+      &:nth-child(#{$i}){
+        animation-delay: $animation-duration-recipe*$i;
+      }
+    }
+   &:hover {
+.recipe__selected{
+  margin-right: 0;
+}
+   .selected{
+    animation: turn 500ms ease-in-out;
+   }
+  
   }
 
   &__wrapper {
     width: 100%;
   }
   &__selected {
-    display: none;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    width: 60px;
+    background: $color-new;
+    border-radius:0 15px 15px 0;
+    margin-right: -82px; 
+    transition: margin-right 500ms ease-in-out;
+  }
+}
+  
+
+.selected{
+  color: white;
+  font-size: 1.5rem;
+  //transform: rotate(0deg) ;
+  
+}
+@keyframes turn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%  {
+    transform: rotate(-360deg);
   }
 }
 
 .add-cart {
   @include button;
+  &:hover {
+    @include box-shadow;
+    opacity: .9;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -524,11 +589,11 @@ html {
     max-width: 1200px;
   }
   .check {
-    &__box-wrapper{
-    display: flex;
-    width: 100%;
+    &__box-wrapper {
+      display: flex;
+      width: 100%;
     }
-    
+
     &__box {
       width: 30%;
       max-width: 280px;
