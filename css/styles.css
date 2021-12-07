@@ -427,6 +427,11 @@ html {
 .card-menu__icon:hover {
   opacity: 1;
 }
+.card-menu__dishes-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .card-menu__dishes {
   width: 100%;
 }
@@ -641,6 +646,10 @@ html {
 
   .restaurant__heading {
     margin-left: 1rem;
+  }
+
+  .card-menu__dishes-wrapper {
+    flex-direction: row;
   }
 
   .footer__content {

@@ -197,7 +197,7 @@ html {
     border-radius: 20px;
     background: $color-bg-light;
     box-shadow: 5px 5px 10px $color-bg-dark;
-    &:hover{
+    &:hover {
       transform: scale(1.1);
     }
   }
@@ -408,14 +408,14 @@ html {
   border-radius: 30px 30px 0 0;
   padding: 1rem;
   overflow: hidden;
-  
+
   &__restaurant {
     width: 100%;
     display: flex;
     justify-content: space-between;
     font-family: "shrikhand";
     font-size: 1.5rem;
-    padding: 1rem -1rem 1rem 0 ;
+    padding: 1rem -1rem 1rem 0;
     margin-bottom: 1rem;
   }
   &__icons {
@@ -428,15 +428,18 @@ html {
       opacity: 1;
     }
   }
-  &__dishes{
-    width: 100%;
- 
+  &__dishes-wrapper{
+  @include flex-column;
+  width: 100%;
   }
-  &__text{
+  &__dishes {
+    width: 100%;
+  }
+  &__text {
     animation: appear $animation-duration-dishes linear both;
     @for $i from 1 through 3 {
-      &:nth-child(#{$i}){
-        animation-delay: $animation-duration-dishes*$i;
+      &:nth-child(#{$i}) {
+        animation-delay: $animation-duration-dishes * $i;
       }
     }
   }
@@ -475,8 +478,6 @@ html {
   &__recipe-text {
     width: 50%;
     @include text-overflow;
-    
-    
   }
   &__price {
     font-weight: bold;
@@ -488,41 +489,37 @@ html {
     transform: translateY(-50%);
     opacity: 0;
   }
-  to{
+  to {
     transform: translateY(0);
     opacity: 1;
   }
-  
 }
 @keyframes appear {
-  from{
+  from {
     opacity: 0;
   }
-  to{
+  to {
     opacity: 1;
   }
-  
 }
-
 
 .recipe {
   position: relative;
   margin: 1rem auto;
 
   animation: slide-down $animation-duration-recipe ease-in-out both;
-    @for $i from 1 through 9 {
-      &:nth-child(#{$i}){
-        animation-delay: $animation-duration-recipe*$i;
-      }
+  @for $i from 1 through 9 {
+    &:nth-child(#{$i}) {
+      animation-delay: $animation-duration-recipe * $i;
     }
-   &:hover {
-.recipe__selected{
-  margin-right: 0;
-}
-   .selected{
-    animation: turn 500ms ease-in-out;
-   }
-  
+  }
+  &:hover {
+    .recipe__selected {
+      margin-right: 0;
+    }
+    .selected {
+      animation: turn 500ms ease-in-out;
+    }
   }
 
   &__wrapper {
@@ -534,24 +531,22 @@ html {
     place-items: center;
     width: 60px;
     background: $color-new;
-    border-radius:0 15px 15px 0;
-    margin-right: -82px; 
+    border-radius: 0 15px 15px 0;
+    margin-right: -82px;
     transition: margin-right 500ms ease-in-out;
   }
 }
-  
 
-.selected{
+.selected {
   color: white;
   font-size: 1.5rem;
   //transform: rotate(0deg) ;
-  
 }
 @keyframes turn {
   0% {
     transform: rotate(0deg);
   }
-  100%  {
+  100% {
     transform: rotate(-360deg);
   }
 }
@@ -560,7 +555,7 @@ html {
   @include button;
   &:hover {
     @include box-shadow;
-    opacity: .9;
+    opacity: 0.9;
   }
 }
 
@@ -617,6 +612,11 @@ html {
   .restaurant {
     &__heading {
       margin-left: 1rem;
+    }
+  }
+  .card-menu{
+    &__dishes-wrapper{
+      flex-direction: row;
     }
   }
 
