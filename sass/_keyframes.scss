@@ -1,0 +1,61 @@
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+      visibility: visible;
+      opacity: 0.9;
+    }
+    33% {
+      transform: rotate(120deg);
+  
+      opacity: 0.6;
+    }
+    66% {
+      transform: rotate(240deg);
+  
+      opacity: 0.3;
+    }
+    100% {
+      transform: rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+ 
+  @keyframes hide {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-down {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes turn {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
