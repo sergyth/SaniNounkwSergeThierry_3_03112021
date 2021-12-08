@@ -1,7 +1,7 @@
 @import "../css/normalize.css";
 @import "variables";
 @import "mixins";
-@import 'keyframes';
+@import "keyframes";
 
 // reset
 
@@ -87,8 +87,6 @@ html {
 
 //main
 
-
-
 .main {
   width: 100%;
   min-width: 320px;
@@ -172,6 +170,9 @@ html {
     box-shadow: 5px 5px 10px $color-bg-dark;
     &:hover {
       transform: scale(1.1);
+      .check__icon {
+        color: $color-primary;
+      }
     }
   }
   &__order {
@@ -220,8 +221,6 @@ html {
 }
 .card {
   width: 90%;
-  //max-width: 700px;
-  //min-width: 280px;
   height: 200px;
   margin: 0 auto;
   position: relative;
@@ -247,9 +246,7 @@ html {
     border-radius: 0 0 15px 15px;
     padding: 0.8rem;
     position: relative;
-    &:hover .heart-icon {
-      opacity: 1;
-    }
+    
   }
   &__heading {
     font-size: 1rem;
@@ -281,6 +278,8 @@ html {
   top: 1rem;
   right: 1rem;
   font-size: 1.3rem;
+ 
+  
 }
 
 .heart-icon-1 {
@@ -294,7 +293,11 @@ html {
   -webkit-background-clip: text;
 
   opacity: 0;
-  transition: all 250ms ease-in-out;
+  transition: opacity 250ms ease-in-out;
+  &:hover {
+    opacity: 1;
+  }
+ 
 }
 
 // footer
@@ -372,7 +375,6 @@ html {
 
 .card-menu {
   position: relative;
-  min-width: 280px;
   width: 100%;
   margin-top: -30px;
   @include flex-column;
@@ -382,13 +384,25 @@ html {
   padding: 1rem;
   overflow: hidden;
 
+  &__heading {
+    font-size: 1.3rem;
+  }
+  &__text {
+    font-size: 1.1rem;
+    animation: appear $animation-duration-dishes linear both;
+    @for $i from 1 through 3 {
+      &:nth-child(#{$i}) {
+        animation-delay: $animation-duration-dishes * $i;
+      }
+    }
+  }
+
   &__restaurant {
     width: 100%;
     display: flex;
     justify-content: space-between;
     font-family: "shrikhand";
-    font-size: 1.5rem;
-    padding: 1rem -1rem 1rem 0;
+    padding: 1rem 1rem 1rem 0;
     margin-bottom: 1rem;
   }
   &__icons {
@@ -401,20 +415,12 @@ html {
       opacity: 1;
     }
   }
-  &__dishes-wrapper{
-  @include flex-column;
-  width: 100%;
+  &__dishes-wrapper {
+    @include flex-column;
+    width: 100%;
   }
   &__dishes {
     width: 100%;
-  }
-  &__text {
-    animation: appear $animation-duration-dishes linear both;
-    @for $i from 1 through 3 {
-      &:nth-child(#{$i}) {
-        animation-delay: $animation-duration-dishes * $i;
-      }
-    }
   }
 
   &__text::after {
@@ -426,58 +432,51 @@ html {
     justify-content: space-between;
     align-items: center;
     width: 95%;
-    //max-width: 700px;
-    //min-width: 320px;
     height: 65px;
     background: #fff;
     border-radius: 15px;
-    padding-left: 0.8rem;
+    padding-left: 0.5rem;
     margin-bottom: 1rem;
     overflow: hidden;
   }
   &__recipe-heading {
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: bold;
     @include text-overflow;
-    width: 50%;
+    width: 80%;
   }
   &__recipe-price {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0;
     font-size: 0.8rem;
-    margin-right: 1rem;
+    //margin-right: .5rem;
+    width: 100%;
   }
   &__recipe-text {
-    width: 50%;
+    width: 80%;
+    font-size: .9rem;
     @include text-overflow;
+    //letter-spacing: -1px;
+    //word-spacing: -1px;
+    //white-space: nowrap;
   }
   &__price {
     font-weight: bold;
   }
 }
 
-
-
 .recipe {
   position: relative;
   margin: 1rem auto;
 
-  animation: slide-down $animation-duration-recipe ease-in-out both;
+  animation: slide-up $animation-duration-recipe ease-in-out both;
   @for $i from 1 through 9 {
     &:nth-child(#{$i}) {
       animation-delay: $animation-duration-recipe * $i;
     }
   }
-  &:hover {
-    .recipe__selected {
-      margin-right: 0;
-    }
-    .selected {
-      animation: turn 500ms ease-in-out;
-    }
-  }
-
+  
   &__wrapper {
     width: 100%;
   }
@@ -488,17 +487,31 @@ html {
     width: 60px;
     background: $color-new;
     border-radius: 0 15px 15px 0;
-    margin-right: -82px;
+    margin-right: -60px;
     transition: margin-right 500ms ease-in-out;
+  }
+  &:hover {
+    .recipe__selected {
+      margin-right: 0;
+      @include text-overflow;
+    }
+    .selected {
+      animation: turn 500ms ease-in-out;
+    }
+    .card-menu__recipe-text,.card-menu__recipe-heading {
+      //width: 40%;
+    }
+    .card-menu__recipe-price{
+      //justify-content: flex-start;
+      width:95%;
+    }
   }
 }
 
 .selected {
   color: white;
-  font-size: 1.5rem;
-  //transform: rotate(0deg) ;
+  font-size: 1.3rem;
 }
-
 
 .add-cart {
   @include button;
@@ -563,8 +576,8 @@ html {
       margin-left: 1rem;
     }
   }
-  .card-menu{
-    &__dishes-wrapper{
+  .card-menu {
+    &__dishes-wrapper {
       flex-direction: row;
     }
   }

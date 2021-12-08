@@ -1,4 +1,57 @@
 @import "../css/normalize.css";
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    visibility: visible;
+    opacity: 0.9;
+  }
+  33% {
+    transform: rotate(120deg);
+    opacity: 0.6;
+  }
+  66% {
+    transform: rotate(240deg);
+    opacity: 0.3;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slide-up {
+  from {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes turn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
 *,
 *::before,
 *::after {
@@ -14,6 +67,12 @@ html {
 
 .red-b {
   border: 1px solid red;
+}
+
+.hide {
+  width: 100%;
+  opacity: 0;
+  animation: hide 3s 3s forwards;
 }
 
 .container {
@@ -57,39 +116,6 @@ html {
   position: absolute;
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-    visibility: visible;
-    opacity: 0.9;
-  }
-  33% {
-    transform: rotate(120deg);
-    opacity: 0.6;
-  }
-  66% {
-    transform: rotate(240deg);
-    opacity: 0.3;
-  }
-  100% {
-    transform: rotate(360deg);
-    opacity: 0;
-  }
-}
-.hide {
-  width: 100%;
-  opacity: 0;
-  animation: hide 3s 3s forwards;
-}
-
-@keyframes hide {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .header {
   width: 100%;
   height: 80px;
@@ -203,6 +229,9 @@ html {
 .check__box:hover {
   transform: scale(1.1);
 }
+.check__box:hover .check__icon {
+  color: #9356dc;
+}
 .check__order {
   display: inline-flex;
   position: absolute;
@@ -280,9 +309,6 @@ html {
   padding: 0.8rem;
   position: relative;
 }
-.card__content:hover .heart-icon {
-  opacity: 1;
-}
 .card__heading {
   font-size: 1rem;
   padding-bottom: 0.5rem;
@@ -320,7 +346,10 @@ html {
   background-clip: text;
   -webkit-background-clip: text;
   opacity: 0;
-  transition: all 250ms ease-in-out;
+  transition: opacity 250ms ease-in-out;
+}
+.heart-icon-1:hover {
+  opacity: 1;
 }
 
 .footer {
@@ -397,7 +426,6 @@ html {
 
 .card-menu {
   position: relative;
-  min-width: 280px;
   width: 100%;
   margin-top: -30px;
   display: flex;
@@ -408,13 +436,28 @@ html {
   padding: 1rem;
   overflow: hidden;
 }
+.card-menu__heading {
+  font-size: 1.3rem;
+}
+.card-menu__text {
+  font-size: 1.1rem;
+  animation: appear 600ms linear both;
+}
+.card-menu__text:nth-child(1) {
+  animation-delay: 600ms;
+}
+.card-menu__text:nth-child(2) {
+  animation-delay: 1200ms;
+}
+.card-menu__text:nth-child(3) {
+  animation-delay: 1800ms;
+}
 .card-menu__restaurant {
   width: 100%;
   display: flex;
   justify-content: space-between;
   font-family: "shrikhand";
-  font-size: 1.5rem;
-  padding: 1rem -1rem 1rem 0;
+  padding: 1rem 1rem 1rem 0;
   margin-bottom: 1rem;
 }
 .card-menu__icons {
@@ -435,18 +478,6 @@ html {
 .card-menu__dishes {
   width: 100%;
 }
-.card-menu__text {
-  animation: appear 600ms linear both;
-}
-.card-menu__text:nth-child(1) {
-  animation-delay: 600ms;
-}
-.card-menu__text:nth-child(2) {
-  animation-delay: 1200ms;
-}
-.card-menu__text:nth-child(3) {
-  animation-delay: 1800ms;
-}
 .card-menu__text::after {
   content: "";
   width: 40px;
@@ -462,27 +493,28 @@ html {
   height: 65px;
   background: #fff;
   border-radius: 15px;
-  padding-left: 0.8rem;
+  padding-left: 0.5rem;
   margin-bottom: 1rem;
   overflow: hidden;
 }
 .card-menu__recipe-heading {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 50%;
+  width: 80%;
 }
 .card-menu__recipe-price {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 0;
   font-size: 0.8rem;
-  margin-right: 1rem;
+  width: 100%;
 }
 .card-menu__recipe-text {
-  width: 50%;
+  width: 80%;
+  font-size: 0.9rem;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -491,28 +523,10 @@ html {
   font-weight: bold;
 }
 
-@keyframes slide-down {
-  from {
-    transform: translateY(-50%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .recipe {
   position: relative;
   margin: 1rem auto;
-  animation: slide-down 200ms ease-in-out both;
+  animation: slide-up 200ms ease-in-out both;
 }
 .recipe:nth-child(1) {
   animation-delay: 200ms;
@@ -541,12 +555,6 @@ html {
 .recipe:nth-child(9) {
   animation-delay: 1800ms;
 }
-.recipe:hover .recipe__selected {
-  margin-right: 0;
-}
-.recipe:hover .selected {
-  animation: turn 500ms ease-in-out;
-}
 .recipe__wrapper {
   width: 100%;
 }
@@ -557,23 +565,27 @@ html {
   width: 60px;
   background: #99e2d0;
   border-radius: 0 15px 15px 0;
-  margin-right: -82px;
+  margin-right: -60px;
   transition: margin-right 500ms ease-in-out;
+}
+.recipe:hover .recipe__selected {
+  margin-right: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.recipe:hover .selected {
+  animation: turn 500ms ease-in-out;
+}
+.recipe:hover .card-menu__recipe-price {
+  width: 95%;
 }
 
 .selected {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
-@keyframes turn {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-360deg);
-  }
-}
 .add-cart {
   width: 220px;
   padding: 1rem;
