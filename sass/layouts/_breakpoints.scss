@@ -1,0 +1,71 @@
+@use '../utils' as *;
+
+@media only screen and (min-width: 768px) {
+    .container {
+      max-width: 991px;
+    }
+    .main {
+      width: 100%;
+    }
+    .cards {
+      flex-direction: row;
+      flex-wrap: wrap;
+      &__item {
+        width: 45%;
+        margin: 1rem;
+      }
+    }
+    .card {
+      width: 45%;
+      max-width: 450px;
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    .container {
+      max-width: 1200px;
+    }
+    .check {
+      &__box-wrapper {
+        display: flex;
+        width: 100%;
+      }
+  
+      &__box {
+        width: 30%;
+        max-width: 280px;
+      }
+    }
+    .cards {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: flex-start;
+      &__item {
+        width: 30%;
+        max-width: 350px;
+        margin: 1rem;
+      }
+    }
+    .card {
+      width: 100%;
+      margin: 1rem;
+    }
+    .restaurant {
+      &__heading {
+        margin-left: 1rem;
+      }
+    }
+    .card-menu {
+      &__dishes-wrapper {
+        flex-direction: row;
+      }
+    }
+  
+    .footer {
+      &__content {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
