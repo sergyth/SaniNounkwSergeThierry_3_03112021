@@ -1,0 +1,15 @@
+@use '../utils' as *;
+
+.container {
+    min-width: 320px;
+    margin: 0 auto;
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hide {
+    width: 100%;
+    opacity: 0;
+    animation: hide 1s 3s both;
+  }

@@ -1,356 +1,27 @@
-@import "../css/normalize.css";
-@import "variables";
-@import "mixins";
-@import "keyframes";
+@use "./utils" as *;
+@use "./abstract" as *;
+@use './base/base' as *;
+@use 'components' as *;
+@use './layouts/' as *;
 
-// reset
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 
-body,
-html {
-  font-family: "roboto", sans-serif;
-}
 
-.red-b {
-  border: 1px solid red;
-}
-.hide {
-  width: 100%;
-  opacity: 0;
-  animation: hide 3s 3s forwards;
-}
 
-.container {
-  //max-width: 767px;
-  min-width: 320px;
-  margin: 0 auto;
-  @include flex-column;
-  justify-content: center;
-  align-items: center;
-}
 
-// spinner
 
-.spinner {
-  position: absolute;
 
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
 
-  @include flex-center;
-
-  &__item {
-    font-size: 1rem;
-    width: 100px;
-    height: 100px;
-
-    border-radius: 50%;
-
-    @include flex-center;
-    animation: spin 3s linear;
-    visibility: hidden;
-  }
-  &__item:nth-child(1) {
-    border-top: 5px solid $color-secondary;
-  }
-  &__item:nth-child(2) {
-    border-bottom: 5px solid $color-primary;
-  }
-  &__text {
-    color: $color-new;
-    position: absolute;
-  }
-}
-//header
-
-.header {
-  width: 100%;
-  height: 80px;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "shrikhand";
-  font-size: 2rem;
-  //box-shadow: 0px 0px 1px 1px;
-  position: relative;
-}
-
-//main
-
-.main {
-  width: 100%;
-  min-width: 320px;
-  @include flex-column;
-  &__wrapper {
-    width: 100%;
-    background: $color-bg-light;
-  }
-}
-
-.booking {
-  @include flex-column;
-  width: 100%;
-  align-items: center;
-  background: $color-bg-light;
-
-  &--dark {
-    background: $color-bg-dark;
-  }
-}
-
-.map {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2.5rem 1rem 0;
-  font-size: 1rem;
-  font-weight: bold;
-
-  &__text {
-    padding-left: 1rem;
-  }
-}
-
-.search {
-  @include flex-column;
-  width: 100%;
-  padding: 1rem;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  &__heading {
-    @include heading-section;
-    padding-bottom: 1rem;
-  }
-  &__text {
-    color: #353434;
-  }
-  &__button {
-    @include button;
-  }
-  &__button:hover {
-    transform: scale(1.1);
-    opacity: 0.9;
-    @include box-shadow;
-  }
-}
-.check {
-  width: 100%;
-  @include flex-column;
-  padding: 1rem;
-  &__heading {
-    @include heading-section;
-  }
-  &__box-wrapper {
-    width: 100%;
-  }
-  &__box {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0.5rem;
-    margin: 1rem auto;
-    position: relative;
-    width: 75%;
-    max-width: 700px;
-    height: 80px;
-    border-radius: 20px;
-    background: $color-bg-light;
-    box-shadow: 5px 5px 10px $color-bg-dark;
-    &:hover {
-      transform: scale(1.1);
-      .check__icon {
-        color: $color-primary;
-      }
-    }
-  }
-  &__order {
-    display: inline-flex;
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    background-color: $color-primary;
-    justify-content: center;
-    align-items: center;
-    left: -13px;
-    color: #fff;
-  }
-  &__icon {
-    margin: 0, 2rem;
-    font-size: 1.2rem;
-    opacity: 0.6;
-  }
-  &__text {
-    font-weight: bold;
-    @include text-overflow;
-  }
-}
-
-.restaurant {
-  width: 100%;
-  padding: 1rem;
-  background: $color-bg-light;
-  &__heading {
-    @include heading-section;
-  }
-}
-
-.cards {
-  width: 100%;
-  min-width: 320px;
-  @include flex-column;
-  align-items: center;
-  justify-content: center;
-
-  &__item {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-}
-.card {
-  width: 90%;
-  height: 200px;
-  margin: 0 auto;
-  position: relative;
-
-  &__link {
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    @include flex-column;
-    color: #000;
-  }
-  &__image {
-    width: 100%;
-    object-fit: cover;
-    border: 0px solid transparent;
-    border-radius: 15px 15px 0 0;
-    height: 65%;
-  }
-  &__content {
-    height: 35%;
-    background: #fff;
-    border: 1px solid #fff;
-    border-radius: 0 0 15px 15px;
-    padding: 0.8rem;
-    position: relative;
-    
-  }
-  &__heading {
-    font-size: 1rem;
-    padding-bottom: 0.5rem;
-  }
-  &__text {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  &__new-box {
-    background-color: $color-new;
-    position: absolute;
-    width: 80px;
-    padding: 0.3rem;
-    right: 1rem;
-    top: 1rem;
-    border: 1px solid transparent;
-    text-align: center;
-    border-radius: 2px;
-  }
-  &__new {
-    color: rgba(10, 141, 109, 255);
-    font-size: 1em;
-  }
-}
-.heart-icon {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.3rem;
- 
-  
-}
-
-.heart-icon-1 {
-  color: transparent;
-  background-image: linear-gradient(
-    0deg,
-    $color-primary 0%,
-    $color-secondary 100%
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-
-  opacity: 0;
-  transition: opacity 250ms ease-in-out;
-  &:hover {
-    opacity: 1;
-  }
- 
-}
 
 // footer
 
-.footer {
-  width: 100%;
-  background: #000;
-  color: #fff;
-  padding: 2rem;
 
-  &__logo {
-    font-family: "shrikhand";
-    font-style: italic;
-    font-size: 1.1rem;
-    padding: 1rem 1rem 1rem 0;
-  }
-  &__content {
-    @include flex-column;
-    font-size: 0.9rem;
-  }
-  &__icon {
-    width: 10px;
-  }
-}
-.submit-restaurant {
-  display: flex;
-  padding: 0.5rem 0.5rem 0.5rem 0;
-  &__text {
-    padding-left: 1rem;
-  }
-}
-.partnership {
-  display: flex;
-  padding: 0.5rem 0.5rem 0.5rem 0;
-  &__text {
-    padding-left: 1rem;
-  }
-}
-.legal {
-  padding: 0.5rem 0.5rem 0.5rem 0;
-}
-.contact {
-  text-decoration: none;
-  color: #fff;
-  padding: 0.5rem 0.5rem 1rem 0;
-}
 
 // restaurant page
 
 .header-restaurant {
   display: flex;
   align-items: center;
-
   &__logo {
     width: 95%;
     text-align: center;
@@ -364,7 +35,6 @@ html {
 .banner {
   width: 100%;
   height: 250px;
-
   &__image {
     width: 100%;
     height: 100%;
@@ -383,7 +53,6 @@ html {
   border-radius: 30px 30px 0 0;
   padding: 1rem;
   overflow: hidden;
-
   &__heading {
     font-size: 1.3rem;
   }
@@ -396,7 +65,6 @@ html {
       }
     }
   }
-
   &__restaurant {
     width: 100%;
     display: flex;
@@ -448,18 +116,15 @@ html {
   &__recipe-price {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0.5rem 0.5rem 0;
     font-size: 0.8rem;
-    //margin-right: .5rem;
     width: 100%;
   }
   &__recipe-text {
     width: 80%;
     font-size: .9rem;
     @include text-overflow;
-    //letter-spacing: -1px;
-    //word-spacing: -1px;
-    //white-space: nowrap;
+  
   }
   &__price {
     font-weight: bold;
@@ -469,14 +134,12 @@ html {
 .recipe {
   position: relative;
   margin: 1rem auto;
-
   animation: slide-up $animation-duration-recipe ease-in-out both;
   @for $i from 1 through 9 {
     &:nth-child(#{$i}) {
       animation-delay: $animation-duration-recipe * $i;
     }
   }
-  
   &__wrapper {
     width: 100%;
   }
@@ -498,13 +161,7 @@ html {
     .selected {
       animation: turn 500ms ease-in-out;
     }
-    .card-menu__recipe-text,.card-menu__recipe-heading {
-      //width: 40%;
-    }
-    .card-menu__recipe-price{
-      //justify-content: flex-start;
-      width:95%;
-    }
+    
   }
 }
 
