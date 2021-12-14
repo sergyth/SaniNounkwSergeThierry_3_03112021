@@ -1,8 +1,8 @@
-@use "./utils" as *;
 @use "./vendors" as *;
+@use "./utils" as *;
 @use './base/base' as *;
-@use 'components' as *;
-@use './layouts/' as *;
+@use './layouts' as *;
+@use './components' as *;
 @use './pages/restaurant' as *;
 
 

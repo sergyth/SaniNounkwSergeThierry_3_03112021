@@ -1,12 +1,13 @@
 @use '../utils' as *;
 
+
+
+
 @media only screen and (min-width: 768px) {
     .container {
       max-width: 991px;
     }
-    .main {
-      width: 100%;
-    }
+   
     .cards {
       flex-direction: row;
       flex-wrap: wrap;
@@ -16,10 +17,11 @@
       }
     }
     .card {
-      width: 45%;
+      width: 100%;
       max-width: 450px;
     }
   }
+
   @media only screen and (min-width: 992px) {
     .container {
       max-width: 1200px;

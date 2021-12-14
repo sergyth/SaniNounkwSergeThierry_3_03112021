@@ -1,5 +1,6 @@
 @use '../utils' as *;
 
+
 .restaurant {
     width: 100%;
     padding: 1rem;
@@ -14,9 +15,11 @@
     @include flex-column;
     align-items: center;
     justify-content: center;
+   
     &__item {
       width: 100%;
       margin-bottom: 1rem;
+   
     }
   }
   .card {

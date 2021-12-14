@@ -1,11 +1,13 @@
 @use '../utils' as *;
 
+
 .container {
     min-width: 320px;
     margin: 0 auto;
     @include flex-column;
     justify-content: center;
     align-items: center;
+   
   }
 
   .hide {
