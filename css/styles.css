@@ -412,6 +412,7 @@ html {
   padding-left: 1rem;
   background: #ebebea;
   border: none;
+  font-weight: bold;
 }
 
 .search {
