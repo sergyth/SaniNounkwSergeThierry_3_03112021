@@ -543,6 +543,9 @@ html {
   flex-direction: column;
   color: #000;
 }
+.card__link:hover {
+  transform: scale(1.1);
+}
 .card__image {
   width: 100%;
   object-fit: cover;
