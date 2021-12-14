@@ -20,6 +20,16 @@
       width: 100%;
       max-width: 450px;
     }
+    .card-menu {
+      &__dishes-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+      &__dishes{
+        width: 50%;
+      }
+    }
   }
 
   @media only screen and (min-width: 992px) {
@@ -60,6 +70,7 @@
     .card-menu {
       &__dishes-wrapper {
         flex-direction: row;
+        flex-wrap: nowrap;
       }
     }
   
