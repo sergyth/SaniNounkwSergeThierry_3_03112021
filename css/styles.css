@@ -352,10 +352,9 @@ html {
 
 .spinner {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -724,6 +723,74 @@ html {
   padding: 0.5rem 0.5rem 1rem 0;
 }
 
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 991px;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .cards__item {
+    width: 45%;
+    margin: 1rem;
+  }
+
+  .card {
+    width: 45%;
+    max-width: 450px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .check__box-wrapper {
+    display: flex;
+    width: 100%;
+  }
+  .check__box {
+    width: 30%;
+    max-width: 280px;
+  }
+
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .cards__item {
+    width: 30%;
+    max-width: 350px;
+    margin: 1rem;
+  }
+
+  .card {
+    width: 100%;
+    margin: 1rem;
+  }
+
+  .restaurant__heading {
+    margin-left: 1rem;
+  }
+
+  .card-menu__dishes-wrapper {
+    flex-direction: row;
+  }
+
+  .footer__content {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
 .header-restaurant {
   display: flex;
   align-items: center;
