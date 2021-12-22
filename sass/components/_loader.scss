@@ -1,0 +1,32 @@
+@use '../utils' as *;
+
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include flex-center; 
+
+    &__item {
+      font-size: 1rem;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;  
+      @include flex-center;
+      animation: spin 3s linear;
+      visibility: hidden;
+
+    }
+    &__item:nth-child(1) {
+      border-top: 5px solid $color-secondary;
+    }
+
+    &__item:nth-child(2) {
+      border-bottom: 5px solid $color-primary;
+    }
+    
+    &__text {
+      color: $color-new;
+      position: absolute;
+    }
+  }

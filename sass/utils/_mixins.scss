@@ -1,0 +1,67 @@
+@use './variables' as *;
+
+@mixin heading-section {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 1rem; 
+}
+
+
+
+@mixin flex-center{
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+}
+
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// crée un composant bouton
+
+@mixin button {
+  width: 220px;
+  padding: 1rem;
+  margin: 2rem;
+  border: none;
+  color: #fff;
+  border-radius: 100px;
+  background: linear-gradient(0deg, $color-primary 0%, $color-secondary 100%);
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+@mixin box-shadow{
+  box-shadow: 0px 1px 1px 1px $color-new;
+}
+
+//cree le trait de couleur color-new de .card-menu__text;
+
+@mixin underline{
+  width: 40px;
+  height: 3px;
+  background: $color-new;
+  display: block;
+}
+
+//permet de raccourcir le texte qui deborde du contenu en le remplaçant par des points de suspension;
+
+@mixin text-overflow{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin selected{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 90%;
+  bottom: 0;
+  border-radius: 0 15px 15px 0;
+  background: #fff;
+}
