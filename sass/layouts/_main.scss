@@ -4,6 +4,7 @@
     width: 100%;
     min-width: 320px;
     @include flex-column;
+    
     &__wrapper {
       width: 100%;
       background: $color-bg-light;

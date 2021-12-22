@@ -6,37 +6,46 @@
     background: #000;
     color: #fff;
     padding: 2rem;
+
     &__logo {
       font-family: "shrikhand";
       font-style: italic;
       font-size: 1.1rem;
       padding: 1rem 1rem 1rem 0;
     }
+
     &__content {
       @include flex-column;
       font-size: 0.9rem;
     }
+
     &__icon {
       width: 10px;
     }
   }
+
   .submit-restaurant {
     display: flex;
     padding: 0.5rem 0.5rem 0.5rem 0;
+
     &__text {
       padding-left: 1rem;
     }
   }
+
   .partnership {
     display: flex;
     padding: 0.5rem 0.5rem 0.5rem 0;
+
     &__text {
       padding-left: 1rem;
     }
   }
+
   .legal {
     padding: 0.5rem 0.5rem 0.5rem 0;
   }
+  
   .contact {
     text-decoration: none;
     color: #fff;

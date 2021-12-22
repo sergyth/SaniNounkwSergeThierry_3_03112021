@@ -16,16 +16,19 @@
         margin: 1rem;
       }
     }
+
     .card {
       width: 100%;
       max-width: 450px;
     }
+
     .card-menu {
       &__dishes-wrapper {
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
       }
+
       &__dishes{
         width: 50%;
       }
@@ -36,6 +39,7 @@
     .container {
       max-width: 1200px;
     }
+
     .check {
       &__box-wrapper {
         display: flex;
@@ -47,6 +51,7 @@
         max-width: 280px;
       }
     }
+
     .cards {
       flex-direction: row;
       flex-wrap: wrap;
@@ -58,15 +63,18 @@
         margin: 1rem;
       }
     }
+
     .card {
       width: 100%;
       margin: 1rem;
     }
+
     .restaurant {
       &__heading {
         margin-left: 1rem;
       }
     }
+    
     .card-menu {
       &__dishes-wrapper {
         flex-direction: row;
